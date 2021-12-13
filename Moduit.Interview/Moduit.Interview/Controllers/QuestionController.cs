@@ -52,7 +52,7 @@ namespace Moduit.Interview.Controllers
 				var response = await client.GetAsync<IEnumerable<Entity>>(request);
 				return Ok(
 					response
-						.Where(entity => entity.Description.Contains("Ergonomic") || entity.Title.Contains("Ergonomic"))
+						.Where(entity => entity.Description.Contains("Ergonomics") || entity.Title.Contains("Ergonomics"))
 						.Where(entity => entity.Tags != null && entity.Tags.Count > 0 && entity.Tags.Contains("Sports"))
 						.OrderByDescending(o => o.Id)
 						.Take(3)
@@ -72,7 +72,6 @@ namespace Moduit.Interview.Controllers
 			{
 				var request = new RestRequest("three", DataFormat.Json);
 				var response = await client.GetAsync<IEnumerable<Entity>>(request);
-				Console.WriteLine(JsonConvert.SerializeObject(response));
 				return Ok(
 					response
 						.Where(entity => entity.Items != null && entity.Items.Count > 0)
