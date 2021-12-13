@@ -6,3 +6,4 @@ run :
 
 watch :
 	dotnet watch --project $(csprojLoc) run
+
